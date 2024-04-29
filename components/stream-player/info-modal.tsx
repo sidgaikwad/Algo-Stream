@@ -24,17 +24,20 @@ import { UploadDropzone } from "@/lib/uploadthing";
 interface InfoModalProps {
   initialName: string;
   initialThumbnailUrl: string | null;
+  initialDescription: string | null;
 };
 
 export const InfoModal = ({
   initialName,
-  initialThumbnailUrl
+  initialThumbnailUrl,
+  initialDescription,
 }: InfoModalProps) => {
   const router = useRouter();
   const closeRef = useRef<ElementRef<"button">>(null);
   const [isPending, startTransition] = useTransition();
 
   const [name, setName] = useState(initialName);
+  const [description, setDescription] = useState(initialName);
   const [thumbnailUrl, setThumbnailUrl] = useState(initialThumbnailUrl);
 
   const onRemove = () => {
@@ -53,7 +56,7 @@ export const InfoModal = ({
     e.preventDefault();
 
     startTransition(() => {
-      updateStream({ name: name })
+      updateStream({ name: name, description: description})
         .then(() => {
           toast.success("Stream updated");
           closeRef?.current?.click();
@@ -64,6 +67,10 @@ export const InfoModal = ({
 
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setName(e.target.value);
+  };
+
+  const onChange1 = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setDescription(e.target.value);
   };
 
   return (
@@ -89,6 +96,17 @@ export const InfoModal = ({
               placeholder="Stream name"
               onChange={onChange}
               value={name}
+            />
+          </div>
+          <div className="space-y-2">
+            <Label>
+              Description
+            </Label>
+            <Input
+              disabled={isPending}
+              placeholder="Stream name"
+              onChange={onChange1}
+              value={description}
             />
           </div>
           <div className="space-y-2">
@@ -154,5 +172,5 @@ export const InfoModal = ({
         </form>
       </DialogContent>
     </Dialog>
-  );
+  )
 };

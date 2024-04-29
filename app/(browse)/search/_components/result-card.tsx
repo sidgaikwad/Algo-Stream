@@ -11,6 +11,7 @@ interface ResultCardProps {
     id: string;
     name: string;
     thumbnailUrl: string | null;
+    description: string | null;
     isLive: boolean;
     updatedAt: Date;
     user: User;
@@ -39,6 +40,7 @@ export const ResultCard = ({
             <VerifiedMark />
           </div>
           <p className="text-sm text-muted-foreground">{data.name}</p>
+          <p className="text-sm text-muted-foreground">{data.description}</p>
           <p className="text-sm text-muted-foreground">
             {formatDistanceToNow(new Date(data.updatedAt), {
               addSuffix: true,

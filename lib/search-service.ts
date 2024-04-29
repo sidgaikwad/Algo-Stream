@@ -46,6 +46,7 @@ export const getSearch = async (term?: string) => {
         name: true,
         isLive: true,
         thumbnailUrl: true,
+        description: true,
         updatedAt: true,
       },
       orderBy: [
@@ -81,6 +82,7 @@ export const getSearch = async (term?: string) => {
         name: true,
         isLive: true,
         thumbnailUrl: true,
+        description: true,
         updatedAt: true,
       },
       orderBy: [

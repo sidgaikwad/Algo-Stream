@@ -22,6 +22,7 @@ type CustomStream = {
   isLive: boolean;
   thumbnailUrl: string | null;
   name: string;
+  description: string;
 };
 
 type CustomUser = {
@@ -88,6 +89,7 @@ export const StreamPlayer = ({
             viewerIdentity={identity}
             name={stream.name}
             thumbnailUrl={stream.thumbnailUrl}
+            description={stream.description}
           />
           <AboutCard
             hostName={user.username}

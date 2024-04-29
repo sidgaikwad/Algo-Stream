@@ -12,6 +12,7 @@ interface ResultCardProps {
     isLive: boolean;
     name: string;
     thumbnailUrl: string | null;
+    description: string | null;
   };
 };
 
@@ -39,6 +40,9 @@ export const ResultCard = ({
             </p>
             <p className="text-muted-foreground">
               {data.user.username}
+            </p>
+            <p className="text-muted-foreground">
+              {data.description}
             </p>
           </div>
         </div>

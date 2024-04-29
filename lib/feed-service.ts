@@ -32,6 +32,7 @@ export const getStreams = async () => {
         isLive: true,
         name: true,
         thumbnailUrl: true,
+        description: true,
       },
       orderBy: [
         {
@@ -50,6 +51,7 @@ export const getStreams = async () => {
         isLive: true,
         name: true,
         thumbnailUrl: true,
+        description: true,
       },
       orderBy: [
         {

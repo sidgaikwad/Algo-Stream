@@ -9,6 +9,7 @@ import { InfoModal } from "./info-modal";
 
 interface InfoCardProps {
   name: string;
+  description: string;
   thumbnailUrl: string | null;
   hostIdentity: string;
   viewerIdentity: string;
@@ -16,6 +17,7 @@ interface InfoCardProps {
 
 export const InfoCard = ({
   name,
+  description,
   thumbnailUrl,
   hostIdentity,
   viewerIdentity,
@@ -43,6 +45,8 @@ export const InfoCard = ({
           <InfoModal
             initialName={name}
             initialThumbnailUrl={thumbnailUrl}
+            initialDescription={description}
+
           />
         </div>
         <Separator />
@@ -53,6 +57,15 @@ export const InfoCard = ({
             </h3>
             <p className="text-sm font-semibold">
               {name}
+            </p>
+            
+          </div>
+          <div>
+          <h3 className="text-sm text-muted-foreground mb-2">
+              Drive Link
+            </h3>
+            <p className="text-sm font-semibold">
+              {description}
             </p>
           </div>
           <div>
